@@ -1,0 +1,24 @@
+<div *ngIf="alertaSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('sucesso')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="alertaErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('erro')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div>
+  <h2>Cadastrar Localidade</h2>
+  <form (submit)="criarLocalidade()">
+    <app-endereco-form [endereco]="novaLocalidade"></app-endereco-form>
+    <div class="form-row row">
+      <div class="form-group col-md-2">
+        <button type="submit" class="btn btn-primary mt-4">Criar</button>
+      </div>
+    </div>
+  </form>
+</div>

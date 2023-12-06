@@ -1,0 +1,106 @@
+2023-12-04 15:40:51.983 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:40:52.013 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:40:52.014 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:40:52.056 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-12-04 15:40:52.057 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:40:52.058 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:40:52.060 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-04 15:40:52.068 -03:00 [INF] Applying migration '20231204183834_041220231538'.
+2023-12-04 15:40:52.104 -03:00 [ERR] Failed executing DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [estudante] (
+    [Id] uniqueidentifier NOT NULL,
+    [NomeCompleto] nvarchar(max) NOT NULL,
+    [DataNascimento] datetime2 NOT NULL,
+    CONSTRAINT [PK_estudante] PRIMARY KEY ([Id])
+);
+2023-12-04 15:41:36.929 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:41:36.959 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:41:36.960 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:41:36.961 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:41:36.973 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-04 15:41:36.981 -03:00 [INF] Applying migration '20231204183834_041220231538'.
+2023-12-04 15:41:37.011 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [estudante] (
+    [Id] uniqueidentifier NOT NULL,
+    [NomeCompleto] nvarchar(max) NOT NULL,
+    [DataNascimento] datetime2 NOT NULL,
+    CONSTRAINT [PK_estudante] PRIMARY KEY ([Id])
+);
+2023-12-04 15:41:37.012 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Localidade] (
+    [Id] uniqueidentifier NOT NULL,
+    [Cidade] nvarchar(max) NOT NULL,
+    [Estado] nvarchar(max) NOT NULL,
+    [Logradouro] nvarchar(max) NOT NULL,
+    [Cep] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Localidade] PRIMARY KEY ([Id])
+);
+2023-12-04 15:41:37.012 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Usuario] (
+    [Id] uniqueidentifier NOT NULL,
+    [Login] nvarchar(max) NOT NULL,
+    [Senha] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Usuario] PRIMARY KEY ([Id])
+);
+2023-12-04 15:41:37.013 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EstudanteLocalidade] (
+    [Id] uniqueidentifier NOT NULL,
+    [EstudanteId] uniqueidentifier NOT NULL,
+    [LocalidadeId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_EstudanteLocalidade] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_EstudanteLocalidade_Localidade_LocalidadeId] FOREIGN KEY ([LocalidadeId]) REFERENCES [Localidade] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EstudanteLocalidade_estudante_EstudanteId] FOREIGN KEY ([EstudanteId]) REFERENCES [estudante] ([Id]) ON DELETE CASCADE
+);
+2023-12-04 15:41:37.017 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EstudanteLocalidade_EstudanteId] ON [EstudanteLocalidade] ([EstudanteId]);
+2023-12-04 15:41:37.017 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_EstudanteLocalidade_LocalidadeId] ON [EstudanteLocalidade] ([LocalidadeId]);
+2023-12-04 15:41:37.297 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231204183834_041220231538', N'7.0.13');
+2023-12-04 15:43:39.803 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:43:39.834 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:43:39.835 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-12-04 15:43:39.835 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-12-04 15:43:39.847 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-12-04 15:43:39.856 -03:00 [INF] Applying migration '20231204184304_202312041543'.
+2023-12-04 15:43:39.880 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [EstudanteLocalidade] DROP CONSTRAINT [FK_EstudanteLocalidade_estudante_EstudanteId];
+2023-12-04 15:43:39.881 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [estudante] DROP CONSTRAINT [PK_estudante];
+2023-12-04 15:43:39.957 -03:00 [INF] Executed DbCommand (76ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[estudante]', N'Estudante';
+2023-12-04 15:43:39.958 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Estudante] ADD CONSTRAINT [PK_Estudante] PRIMARY KEY ([Id]);
+2023-12-04 15:43:39.958 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [EstudanteLocalidade] ADD CONSTRAINT [FK_EstudanteLocalidade_Estudante_EstudanteId] FOREIGN KEY ([EstudanteId]) REFERENCES [Estudante] ([Id]) ON DELETE CASCADE;
+2023-12-04 15:43:39.959 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231204184304_202312041543', N'7.0.13');

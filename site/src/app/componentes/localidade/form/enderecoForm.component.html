@@ -1,0 +1,25 @@
+<div class="form-row row">
+  <div class="form-group col-md-2">
+    <label for="cep">CEP:</label>
+    <input id="cep" type="text" name="cep" class="form-control" [(ngModel)]="endereco.cep" (input)="buscarDetalhesCEP()"
+      required>
+  </div>
+</div>
+<div class="border-bottom mb-3 mt-3 col-md-6"></div>
+<div class="form-row row">
+  <div class="form-group col-md-5">
+    <label for="cidade">Cidade:</label>
+    <input id="cidade" type="text" name="cidade" class="form-control" [(ngModel)]="endereco.cidade" required>
+  </div>
+  <div class="form-group col-md-1">
+    <label for="estado">UF:</label>
+    <input id="estado" type="text" name="estado" class="form-control" [(ngModel)]="endereco.estado" required>
+  </div>
+</div>
+<div class="form-row row">
+  <div class="form-group col-md-6">
+    <label for="logradouro">Logradouro:</label>
+    <input id="logradouro" type="text" name="logradouro" class="form-control" [(ngModel)]="endereco.logradouro"
+      required>
+  </div>
+</div>

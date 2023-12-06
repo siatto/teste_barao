@@ -1,0 +1,44 @@
+<div>
+  <div *ngIf="loginSucesso" class="alert alert-success" role="alert">
+    Login bem-sucedido!
+  </div>
+
+  <div *ngIf="loginFalha" class="alert alert-danger" role="alert">
+    Falha no login! Verifique suas credenciais.
+  </div>
+
+  <div *ngIf="novoUsuarioCadastrado" class="alert alert-info" role="alert">
+    Novo usuário cadastrado com sucesso!
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Acesso</div>
+        <div class="card-body">
+          <form (submit)="onSubmit()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="login" class="form-label">Login</label>
+              <input type="text" id="login" class="form-control" placeholder="Digite seu usuário" [(ngModel)]="login"
+                name="login" required>
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" id="senha" class="form-control" placeholder="Digite sua senha" [(ngModel)]="senha"
+                name="senha" required>
+            </div>
+            <div class="mb-3">
+              <label for="validacao" class="form-label">Validação</label>
+              <input type="text" id="validacao" class="form-control"
+                placeholder="Digite os 6 dígitos enviados por email" [(ngModel)]="validacao" name="validacao">
+              <div class="form-text">Não implementado, para novos cadastros, utilize "000000"</div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

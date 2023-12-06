@@ -1,0 +1,21 @@
+USE [cubm]
+GO
+
+/****** Object:  Table [dbo].[usuario]    Script Date: 21/11/2023 12:51:21 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[usuario](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Login] [varchar](120) NOT NULL,
+	[Senha] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+

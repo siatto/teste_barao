@@ -1,0 +1,40 @@
+<div *ngIf="alertaSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('sucesso')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="alertaErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('erro')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div>
+  <h2>Lista de Localidades</h2>
+  <div class="form-group">
+    <label for="filtroLogradouro">Filtrar por Logradouro:</label>
+    <input id="filtroLogradouro" type="text" class="form-control" placeholder="Digite o logradouro"
+      [(ngModel)]="filtroLogradouro" (input)="aplicarFiltro()">
+  </div>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>Logradouro</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let localidade of localidadesFiltrados">
+        <td>{{ localidade.logradouro }}</td>
+        <td>
+          <button (click)="verDetalhes(localidade.id)" class="btn btn-primary">Detalhes</button>
+          <button (click)="editarLocalidade(localidade.id)" class="btn btn-primary px--2 mx-2">Editar</button>
+          <button *ngIf="isLoggedIn()" (click)="excluirLocalidade(localidade.id)"
+            class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Menu Lateral -->
+    <div class="col-md-3">
+      <header>
+        <h1>Gerenciador</h1>
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home/tela">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/estudantes/tela">Estudantes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/localidades/tela">Localidades</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+              <a class="nav-link cursor-pointer highlight-logout" (click)="logout()">Logout</a>
+            </li>
+            <li *ngIf="!isLoggedIn()" class="nav-item">
+              <a class="nav-link cursor-pointer highlight-logout" routerLink="/login">Login</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="col-md-9">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>

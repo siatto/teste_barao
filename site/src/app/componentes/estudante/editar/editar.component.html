@@ -1,0 +1,44 @@
+<div *ngIf="alertaSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('sucesso')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="alertaErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('erro')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div *ngIf="estudante">
+  <h2>Editar Estudante</h2>
+  <form (submit)="atualizarEstudante()">
+    <div class="form-row row">
+      <div class="form-group col-md-5">
+        <label for="nomeCompleto">Nome:</label>
+        <input id="nomeCompleto" type="text" name="nomeCompleto" class="form-control"
+          [(ngModel)]="estudante.nomeCompleto">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input id="dataNascimento" type="date" name="dataNascimento" class="form-control"
+          [(ngModel)]="estudante.dataNascimento">
+      </div>
+    </div>
+    <div class="form-row row">
+      <div class="form-group col-md-8">
+        <label for="localidade">Localidade:</label>
+        <select id="localidade" name="localidade" class="form-control" [(ngModel)]="localidadeId">
+          <option *ngFor="let localidade of localidades" [value]="localidade.id">{{ localidade.logradouro }}, {{
+            localidade.cidade }} - {{ localidade.estado }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row row">
+      <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary mt-4">Salvar Alterações</button>
+      </div>
+    </div>
+  </form>
+</div>

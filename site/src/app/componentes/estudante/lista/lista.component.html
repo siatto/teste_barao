@@ -1,0 +1,39 @@
+<div *ngIf="alertaSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('sucesso')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="alertaErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ mensagemAlerta }}
+  <button type="button" class="close" (click)="fecharAlerta('erro')" aria-label="Fechar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div>
+  <h2>Lista de Estudantes</h2>
+  <div class="form-group">
+    <label for="filtroNome">Filtrar por Nome:</label>
+    <input id="filtroNome" type="text" class="form-control" placeholder="Digite o nome" [(ngModel)]="filtroNome"
+      (input)="aplicarFiltro()">
+  </div>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudante of estudantesFiltrados">
+        <td>{{ estudante.nomeCompleto }}</td>
+        <td>
+          <button (click)="verDetalhes(estudante.id)" class="btn btn-primary">Detalhes</button>
+          <button (click)="editarEstudante(estudante.id)" class="btn btn-primary px--2 mx-2">Editar</button>
+          <button *ngIf="isLoggedIn()" (click)="excluirEstudante(estudante.id)" class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

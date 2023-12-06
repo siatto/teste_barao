@@ -1,0 +1,57 @@
+/* Geral */
+.container-fluid {
+  padding: 20px;
+}
+
+.row {
+  margin: 0;
+}
+
+/* Barra Lateral */
+.col-md-3 {
+  background-color: #f5f5f5;
+  border-right: 1px solid #e1e1e1;
+  padding: 20px;
+}
+
+/* Títulos */
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Links de Navegação */
+.nav-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #555;
+}
+
+/* Área Principal */
+.col-md-9 {
+  padding: 20px;
+}
+
+/* Links Gerais */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Cursor Ponteiro */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Destaque Logout */
+.highlight-logout {
+  color: red;
+  font-weight: bold;
+}
